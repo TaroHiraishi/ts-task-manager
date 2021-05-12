@@ -3,14 +3,12 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue'
-  import HelloWorld from '../components/HelloWorld.vue'
+import { defineComponent } from '@vue/composition-api'
+import HelloWorld from '@/components/HelloWorld.vue'
 
-  export default Vue.extend({
-    name: 'Home',
-
-    components: {
-      HelloWorld,
-    },
-  })
+export default defineComponent({
+  components: {
+    HelloWorld,
+  }
+})
 </script>

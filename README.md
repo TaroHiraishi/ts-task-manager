@@ -1,24 +1,12 @@
-# ts-task-manager
+# 使用した技術
+1. TypeScript
+2. Vue.js
+3. TinyMCE(WYSIWYGライブラリ)
+4. GitHub Actions
+5. Firebase
+6. Vuetify
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
+# 開発サーバーを立てる
 ```
 npm run serve
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

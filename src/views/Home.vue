@@ -21,6 +21,9 @@
 import { computed, defineComponent, ref } from '@vue/composition-api'
 import HelloWorld from '@/components/HelloWorld.vue'
 import Editor from '@tinymce/tinymce-vue'
+import { store } from '@/store'
+import { Dispatcher } from 'vuex-type-helper'
+import { TaskActions } from '@/store/task'
 
 export default defineComponent({
   components: {
@@ -35,7 +38,11 @@ export default defineComponent({
     })
 
     const save = () => {
-      console.log(body.value)
+      store.dispatch<Dispatcher<TaskActions>>({
+        type: 'addTask',
+        body: body.value,
+      })
+      body.value = ''
     }
 
     return {

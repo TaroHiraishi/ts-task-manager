@@ -12,3 +12,15 @@ export const createTask = async (body: string) => {
     body,
   )
 }
+
+export const getTasks = async () => {
+  const responses = await firestore.collection('tasks').get()
+
+  const responsesData = responses.docs
+  return responsesData.map((taskResponse) => {
+    return new Task(
+      taskResponse.id,
+      taskResponse.data().body,
+    )
+  })
+}

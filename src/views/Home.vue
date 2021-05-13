@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref } from '@vue/composition-api'
+import { computed, defineComponent, onMounted, ref } from '@vue/composition-api'
 import HelloWorld from '@/components/HelloWorld.vue'
 import Editor from '@tinymce/tinymce-vue'
 import { store } from '@/store'
@@ -44,6 +44,16 @@ export default defineComponent({
       })
       body.value = ''
     }
+
+    const tasks = computed(() => {
+      return store.getters.tasks
+    })
+
+    onMounted(() => {
+      store.dispatch<Dispatcher<TaskActions>>({
+        type: 'updateTasks',
+      })
+    })
 
     return {
       body,

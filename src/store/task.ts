@@ -1,5 +1,5 @@
 import { Task } from "@/models/task";
-import { createTask } from "@/repository";
+import { createTask, getTasks } from "@/repository";
 import {
   DefineActions,
   DefineGetters, DefineMutations,
@@ -25,6 +25,9 @@ export interface TaskMutations {
 export interface TaskActions {
   addTask: {
     body: string
+  },
+  updateTasks: {
+
   }
 }
 
@@ -62,8 +65,12 @@ const actions: DefineActions<
     createTask(payload.body).then((task) => {
       commit('addTask', { task })
     })
-    console.log(state.tasks)
   },
+  updateTasks({ commit }) {
+    getTasks().then((tasks) => {
+      commit('updateTasks', { tasks })
+    })
+  }
 }
 
 export const task = {
